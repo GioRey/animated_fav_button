@@ -19,7 +19,7 @@ class AnimatedReactButton extends StatefulWidget {
   final bool isFavorite;
 
   const AnimatedReactButton({
-    Key? key,
+    super.key,
     this.defaultColor = Colors.grey,
     this.defaultIcon = Icons.favorite,
     required this.reactColor,
@@ -27,9 +27,7 @@ class AnimatedReactButton extends StatefulWidget {
     this.showSplash = true,
     this.iconSize = 35,
     this.enableTap = true,
-    this.splashIcons = const [
-      Icons.pets,
-    ],
+    this.splashIcons = const [Icons.pets],
     this.splashColors = const [
       Colors.red,
       Colors.orange,
@@ -37,7 +35,7 @@ class AnimatedReactButton extends StatefulWidget {
       Colors.pink,
     ],
     this.isFavorite = false,
-  }) : super(key: key);
+  });
 
   @override
   State<AnimatedReactButton> createState() => _AnimatedReactButtonState();
@@ -60,8 +58,10 @@ class _AnimatedReactButtonState extends State<AnimatedReactButton>
   void initState() {
     super.initState();
     _favStatus = widget.isFavorite ? widget.reactColor : widget.defaultColor;
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
     CurvedAnimation curve = CurvedAnimation(
       parent: _controller,
       curve: Curves.easeOutExpo,
@@ -78,8 +78,9 @@ class _AnimatedReactButtonState extends State<AnimatedReactButton>
     super.didUpdateWidget(oldWidget);
     if (oldWidget.isFavorite != widget.isFavorite) {
       setState(() {
-        _favStatus =
-            widget.isFavorite ? widget.reactColor : widget.defaultColor;
+        _favStatus = widget.isFavorite
+            ? widget.reactColor
+            : widget.defaultColor;
       });
     }
   }
@@ -112,13 +113,15 @@ class _AnimatedReactButtonState extends State<AnimatedReactButton>
           .splashColors[math.Random().nextInt(widget.splashColors.length)];
 
       Bubble bubble = Bubble(
-          angle: angle,
-          dx: _refDx + math.sin(angle) * _maxResaultant,
-          dy: _refDy + math.cos(angle) * _maxResaultant,
-          r: math.Random().nextDouble() * 5 +
-              2, // Radio entre 2 y 7 para mejor visibilidad de iconos
-          color: selectedColor,
-          icon: selectedIcon);
+        angle: angle,
+        dx: _refDx + math.sin(angle) * _maxResaultant,
+        dy: _refDy + math.cos(angle) * _maxResaultant,
+        r:
+            math.Random().nextDouble() * 5 +
+            2, // Radio entre 2 y 7 para mejor visibilidad de iconos
+        color: selectedColor,
+        icon: selectedIcon,
+      );
       handleCollision(i, bubble);
       _bubbles.add(bubble);
     }
@@ -172,18 +175,21 @@ class _AnimatedReactButtonState extends State<AnimatedReactButton>
               return Stack(
                 children: [
                   FadeTransition(
-                    opacity:
-                        Tween<double>(begin: 1, end: 0).animate(CurvedAnimation(
-                      parent: _controller,
-                      curve: Curves.easeOut,
-                    )),
+                    opacity: Tween<double>(begin: 1, end: 0).animate(
+                      CurvedAnimation(
+                        parent: _controller,
+                        curve: Curves.easeOut,
+                      ),
+                    ),
                     child: CustomPaint(
                       child: Container(),
                       foregroundPainter: ReactPainter(
-                          value: _animation.value, bubbles: _bubbles),
+                        value: _animation.value,
+                        bubbles: _bubbles,
+                      ),
                     ),
                   ),
-                  Align(alignment: Alignment.center, child: child!)
+                  Align(alignment: Alignment.center, child: child!),
                 ],
               );
             },

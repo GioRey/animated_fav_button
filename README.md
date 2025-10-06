@@ -144,7 +144,7 @@ AnimatedReactButton(
 ## System Requirements 📋
 
 - Flutter SDK: `>=1.17.0`
-- Dart SDK: `>=2.16.2 <3.0.0`
+- Dart SDK: `^3.8.1`
 
 ## Contributing 🤝
 
