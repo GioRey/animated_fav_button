@@ -1,6 +1,6 @@
 name: animated_fav_button
 description: A Flutter package for creating animated favorite buttons with attractive visual effects like hearts, likes, and other reactions. Easy to use, highly customizable with smooth animations and splash effects.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/GioRey/animated_fav_button
 repository: https://github.com/GioRey/animated_fav_button
 issue_tracker: https://github.com/GioRey/animated_fav_button/issues
