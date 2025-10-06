@@ -1,14 +1,22 @@
-## 0.0.1
-- Initial Release
+# Changelog
 
-## 0.0.2
-- Status color change bug fixed.
+All notable changes to this project will be documented in this file.
 
-## 0.0.3
-- Screenshots, and contact info added.
+## [0.0.1] - 2025-10-05
 
-## 0.0.4
-- Example file and other docmentation info added.
+### Added
+- Initial release of Animated Fav Button package
+- Customizable animated favorite button widget
+- Splash effect animations with particles
+- Configurable colors, icons, and sizes
+- Enable/disable tap functionality
+- Comprehensive documentation and examples
+- MIT License
+- Complete README with usage examples
 
-## 0.0.5
-- Enable or disable tap for animation (adding bool enableTap default is true)
+### Features
+- Smooth animations with Flutter's animation system
+- Customizable splash icons and colors
+- Responsive design for different screen sizes
+- Easy-to-use API with sensible defaults
+- Performance optimized animations
